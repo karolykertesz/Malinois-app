@@ -1,7 +1,7 @@
 const Joi = require("joi");
 
 const singUpSchima = Joi.object({
-  name: Joi.string().alphanum().min(6).max(50).required(),
+  name: Joi.string().alphanum().min(7).max(50).required(),
   email: Joi.string()
     .required()
     .email({

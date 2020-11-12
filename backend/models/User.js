@@ -1,24 +1,23 @@
 const mongoose = require("mongoose");
+const { isEmail } = require("validator");
 const bcrypt = require("bcrypt");
+
 const UserSchema = mongoose.Schema({
   name: {
     type: String,
     required: true,
-    minlength: [6, "min 6 characters required"],
   },
   email: {
     type: String,
-    required: true,
-    unique: [true, "valid email is required"],
-    minlength: 8,
-    maxlength: 50,
+    required: [true, "Please enter an email"],
+    unique: true,
     lowercase: true,
+    validate: [isEmail, "Please enter a valid email"],
   },
   password: {
     type: String,
-    required: true,
-    minlength: [6, "password needs to be longer than 6"],
-    maxlength: 500,
+    required: [true, "Your password required"],
+    minlength: [6, "password needs to be longer than 6 char"],
   },
 });
 
@@ -34,9 +33,10 @@ UserSchema.statics.login = async function (email, password) {
     if (auth) {
       return user;
     }
-    throw Error("Password id not valid!");
+    throw Error("Password  not valid!");
   }
   throw Error("Need a valid Email!");
 };
 
-mongoose.model("User", UserSchema);
+const User = mongoose.model("User", UserSchema);
+module.exports = User;
