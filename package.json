@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "test": "jest",
     "dev": "npm run start --prefix client",
-    "start_dev_mode": "npm run dev --prefix server && npm run start --prefix client"
+    "start_dev_mode": "npm run dev --prefix server && npm run start --prefix client",
+    "server_test": "jest --prefix server"
   },
   "repository": {
     "type": "git",
