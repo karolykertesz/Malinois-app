@@ -1,5 +1,6 @@
-/node_modules
-*/node_modules
-*/.env
-.env
-.env.local
+server/node_modules
+client/node_modules
+*.log
+*.env
+*.env.local
+.DS_strore
