@@ -1,20 +1,23 @@
-import React from "react";
-import { Route, Switch } from "react-router-dom";
-import LoginClient from "./components/LoginClient";
-import Api from "./components/Main";
-import SignUpClient from "./components/SignUpClient";
-import Main from "./components/Main";
-import Getme from "./components/Getme";
-import "./styles/index.css";
+import logo from './logo.svg';
+import './App.css';
 
 function App() {
   return (
-    <div>
-      <Switch>
-        <Route path="/" exact={true} component={LoginClient} />
-        <Route path="/main" exact={true} component={Main} />
-        <Route path="/getme" exact={true} component={Getme} />
-      </Switch>
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
     </div>
   );
 }

@@ -1,0 +1,20 @@
+{
+  "name": "malinois-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npm run start --prefix client",
+    "start_dev_mode": "npm run dev --prefix server && npm run start --prefix client"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karolykertesz/Malinois-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/karolykertesz/Malinois-app/issues"
+  },
+  "homepage": "https://github.com/karolykertesz/Malinois-app#readme"
+}
