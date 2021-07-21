@@ -7,7 +7,7 @@ const apiv1 =require("./api/v1")
 
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({origin: true}))
+app.use(cors({origin: "http://localhost:3000"}))
 app.use("/v1",apiv1)
 
 module.exports = app
