@@ -6,6 +6,7 @@
   "scripts": {
     "test": "jest",
     "dev": "npm run start --prefix client",
+    "start": "npm run dev --prefix server",
     "start_dev_mode": "npm run dev --prefix server && npm run start --prefix client",
     "server_test": "jest --prefix server",
     "build": "npm run build --prefix client"
