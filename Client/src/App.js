@@ -1,10 +1,10 @@
 
 import "../src/css/style.css"
+import HomeCont from "./components/HomeCont";
 function App() {
   return (
     <div className="App">
-    <p>kertesz</p>
-
+<HomeCont/>
     </div>
   );
 }
