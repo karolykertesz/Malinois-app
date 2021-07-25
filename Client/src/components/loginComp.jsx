@@ -6,6 +6,7 @@ const loginComp = (props) => {
     <div>
 <div>
 <form onSubmit={()=> {}}>
+
 <button>Send</button>
 </form>
 </div>      
