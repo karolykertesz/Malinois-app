@@ -3,8 +3,12 @@
   position: absolute;
   top: 10%;
   height: 80%;
-  background: url("./../images/mali.jpg");
+  background: 
+  linear-gradient(to right , rgba($main-color,0.9),
+  rgba($main-color,0.3)),
+  url("./../images/mali.jpg");
   background-size: cover;
+  background-repeat: no-repeat;
   background-position:center;
 
 }

@@ -1,7 +1,7 @@
 
 import {LOG_IN,SIGN_OUT,DELETE_USER} from "./index"
 const initialState = {
-  id: null,
+  id: 1,
   user_name: null,
   user_email: null,
   status: false

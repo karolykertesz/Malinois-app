@@ -1,9 +1,9 @@
-@import "./config.scss";
-@import "./main";
+@import "./_config";
+@import "./_main";
 @import "./_nav";
-@import "./footer";
-
-
+@import "./_home";
+@import "./_footer";
+@import "./_buttons.scss";
 * {
   box-sizing: border-box;
   margin: 0;
@@ -14,13 +14,18 @@ body {
   background-color: $main-color;
   font-family: $main-font;
   font-size: $base-font-size;
-  height: 100 vh;
+  height: 100vh;
+  color: set-color($main-color);
   
-
-
-
+}
+a {
+  color: set-color($main-color);
+  text-decoration: none;
+}
+ul {
+  list-style-type: none;
 }
 
 
 
-@import "./buttons.scss";
+

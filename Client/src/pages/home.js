@@ -1,7 +1,9 @@
 const Home = ()=> {
   return (
-    <div>
-    kkkkkkkkkkkkkkkkkkkkkkkklll
+    <div className="home">
+<h3 className="home-text">
+Offical Mali Lover App
+</h3>
     </div>
   )
 }

@@ -4,5 +4,22 @@ footer {
   position: fixed;
   bottom: 0;
   width:100%;
-  background-color: burlywood;
+  background-color: rgb(250, 218, 176);
+  .social-icons {
+    position: fixed;
+    left: 2rem;
+    bottom: 1rem;
+    
+    a{
+      padding: 0.4rem;
+      color: $main-color;
+      transform: rotate(720deg);
+@include transition-ease;
+      &:hover{
+        color: $icon-color;
+
+        
+      }
+    }
+  }
 }
