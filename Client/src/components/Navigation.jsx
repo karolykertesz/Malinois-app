@@ -10,24 +10,24 @@ const Navigation = ()=> {
     </div>
 
       <nav className="nav">
-        <ul className={open ? "manu-nav" : "manu-nav open"}>
-          <li className="menu-nav-item">
+        <ul className={!open ? "manu-nav" : "manu-nav open"}>
+          <li className={!open ? "menu-nav-item" : "menu-nav-item open"}>
             <a href="index.html" className="menu-nav-link active">
               Home
             </a>
           </li>
-          <li className="menu-nav-item">
+          <li className={!open ? "menu-nav-item" : "menu-nav-item open"}>
             <a href="projects.html" className="menu-nav-link">
               Projects
             </a>
           </li>
 
-          <li className="menu-nav-item">
+          <li className={!open ? "menu-nav-item" : "menu-nav-item open"}>
             <a href="about.html" className="menu-nav-link">
               About Me
             </a>
           </li>
-          <li className="menu-nav-item">
+          <li className={!open ? "menu-nav-item" : "menu-nav-item open"}>
             <a href="contact.html" className="menu-nav-link">
               Contact me
             </a>

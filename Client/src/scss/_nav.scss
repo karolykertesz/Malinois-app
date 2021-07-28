@@ -6,22 +6,63 @@ header {
   width: 100%;
   height: 10%;
   background-color: rgb(250, 218, 176);
-  .manu-nav {
+  .manu-nav { 
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    flex-direction: row;
+    justify-content: center;
     margin-top: 15px;
     opacity: 0.9;
+    margin-right: 10px;
     visibility: hidden;
     overflow: hidden;
+    // transform: translateY(100px);
+    
+    
+    @include transition-ease;
+    &.open {
+      transform: translateY(0);
+      height: 90vh;
+      width: 100vw;
+    background: rgb(250, 218, 176); 
+visibility: visible;
+opacity: 1;
+
+;
+
+
+    }
+
+
     li a{
       color: $sub-color;
+    padding-right: 1rem;
+
     }
-    &.open {
-      visibility: visible
+    
+    li a:nth-child(1){
+      // margin-left: 2rem;
     }
+    // &.open {
+    //   visibility: visible
+    // }
   };
-  
+
+  .menu-nav-item {
+    transform: translateX(0);
+
+      color: $sub-color;
+      visibility: visible;
+
+@include transition-ease;
+&.open {
+@include transition-ease;
+transform: translateX(10vh);
+color: $sub-color;
+
+}
+
+  }
   .menu-btn {
     position: absolute;
     right: 1rem;
@@ -68,4 +109,25 @@ header {
 }
 }
   }
+}
+
+.menu-nav-link{
+  display: inline-block;
+  // padding:.5rem 0;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  font-weight: 300;
+  @include transition-ease;
+&.active {
+  color:$icon-color;
+}
+
+  &:hover{
+    color: $icon-color;
+  }
+}
+
+@for $i from 1 through 4 {
+  .menu-nav-item:nth-child(#{$i}){
+transition-delay: ($i * 0.1s) + 0.15s  }
 }
