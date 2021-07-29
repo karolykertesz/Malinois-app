@@ -1,9 +1,9 @@
-import React,{Fragment} from "react";
+
 import {useSelector} from "react-redux";
-import {routes} from "../helpers/routes"
 import {BrowserRouter,Switch,Route} from "react-router-dom"
 import Login from "../pages/login";
 import Home from "../pages/home"
+import About from "../pages/about"
 import MainHolder from "./MainHolder";
 const HomeCont =()=> {
   const user =useSelector((state)=> state.user)
@@ -15,6 +15,8 @@ const HomeCont =()=> {
       <Route component={Login} exact path="/"/>): (
         <MainHolder >
         <Route component={Home} exact path="/"/> 
+        <Route component={About} exact path="/about"/> 
+
         </MainHolder>
       )     
     }

@@ -4,6 +4,7 @@
 @import "./_home";
 @import "./_footer";
 @import "./_buttons.scss";
+@import "./about";
 * {
   box-sizing: border-box;
   margin: 0;
@@ -26,6 +27,8 @@ ul {
   list-style-type: none;
 }
 
-
+.text-secondary {
+  color: $sub-color;
+}
 
 
