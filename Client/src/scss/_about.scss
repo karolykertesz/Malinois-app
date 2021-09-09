@@ -3,7 +3,7 @@
   width: 100%;
   &-bio-image{
     width: 100%;
-    height: 450px;
+    height: 300px;
     background: 
     linear-gradient(to right , rgba($main-color,0.9),
     rgba($main-color,0.3)),
@@ -26,6 +26,7 @@
 
 &-cover{
   width: 100%;
+  height: auto;
   text-align: center;
   .text-secondary {
     padding-bottom: 1rem;
@@ -33,14 +34,22 @@
 }
 .descriptions {
   width: 60vw;
-  margin: 2rem auto 0 auto;
+  margin: 1rem auto 0 auto;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2rem;
+  gap: 1rem;
+ 
   &-desc{
     background: lighten($main-color,3%);
     padding: 0.5rem;
     border-bottom: 5px solid $icon-color;
+    h2,h2 {
+      margin: 0.2rem 0;
+    }
+    h6 {
+      margin: 0.2rem 0;
+    }
+
 }
 
 

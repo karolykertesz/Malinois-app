@@ -1,6 +1,6 @@
 const About =()=> {
   return (
-    <main>
+    <main className="main-cont">
   <section className="about">
 <div className="about-cover">
 <div className="about-bio-image">

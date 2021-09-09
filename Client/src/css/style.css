@@ -148,17 +148,16 @@ footer {
 }
 footer .social-icons {
   position: fixed;
-  left: 2rem;
+  left: 1rem;
   bottom: 1rem;
 }
 footer .social-icons a {
   padding: 0.4rem;
   color: papayawhip;
-  transform: rotate(720deg);
-  transition: all 0.5s ease-in-out;
 }
 footer .social-icons a:hover {
   color: silver;
+  transform: translateY(30%);
 }
 
 .about {
@@ -167,7 +166,7 @@ footer .social-icons a:hover {
 }
 .about-bio-image {
   width: 100%;
-  height: 450px;
+  height: 300px;
   background: linear-gradient(to right, rgba(255, 239, 213, 0.9), rgba(255, 239, 213, 0.3)), url("./../images/med.jpg");
   background-size: 100% 610px;
   background-repeat: no-repeat;
@@ -183,6 +182,7 @@ footer .social-icons a:hover {
 }
 .about-cover {
   width: 100%;
+  height: auto;
   text-align: center;
 }
 .about-cover .text-secondary {
@@ -190,15 +190,21 @@ footer .social-icons a:hover {
 }
 .about .descriptions {
   width: 60vw;
-  margin: 2rem auto 0 auto;
+  margin: 1rem auto 0 auto;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2rem;
+  gap: 1rem;
 }
 .about .descriptions-desc {
   background: #fff5e4;
   padding: 0.5rem;
   border-bottom: 5px solid silver;
+}
+.about .descriptions-desc h2, .about .descriptions-desc h2 {
+  margin: 0.2rem 0;
+}
+.about .descriptions-desc h6 {
+  margin: 0.2rem 0;
 }
 
 * {
