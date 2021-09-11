@@ -7,18 +7,15 @@ footer {
   background-color: rgb(250, 218, 176);
   .social-icons {
     position: fixed;
-    left: 2rem;
+    left: 1rem;
     bottom: 1rem;
     
     a{
       padding: 0.4rem;
       color: $main-color;
-      transform: rotate(720deg);
-@include transition-ease;
       &:hover{
         color: $icon-color;
-
-        
+        transform: translateY(30%);
       }
     }
   }

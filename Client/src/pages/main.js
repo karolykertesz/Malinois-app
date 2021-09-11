@@ -1,7 +1,7 @@
 const Main =()=> {
   return (
     <div>
-   kkkkkkkkkk
+
     </div>
   )
 }
