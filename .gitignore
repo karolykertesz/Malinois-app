@@ -6,3 +6,4 @@ client/node_modules
 *.env
 *.env.local
 .DS_strore
+client/src/ormconfig.json
