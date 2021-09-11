@@ -1,13 +1,18 @@
-import React,{useState} from "react"
+import React, { useState } from "react";
 
-const Navigation = ()=> {
-  const [open,setOpnen]= useState(false);
-  console.log(open)
+const Navigation = () => {
+  const [open, setOpnen] = useState(false);
+
   return (
     <header>
-    <div className="menu-btn">
-    <span className={!open ? "menu-btn-burger" : "menu-btn-burger open"} onClick={()=> setOpnen(!open)}> </span>
-    </div>
+      <div className="menu-btn">
+        <span
+          className={!open ? "menu-btn-burger" : "menu-btn-burger open"}
+          onClick={() => setOpnen(!open)}
+        >
+          {" "}
+        </span>
+      </div>
 
       <nav className="nav">
         <ul className={open ? "manu-nav" : "manu-nav open"}>
@@ -35,8 +40,7 @@ const Navigation = ()=> {
         </ul>
       </nav>
     </header>
-    
-  )
-}
+  );
+};
 
 export default Navigation;

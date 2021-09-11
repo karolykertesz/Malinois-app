@@ -4,5 +4,6 @@ client/node_modules
 **/node_modules
 *.log
 *.env
+.env
 *.env.local
 .DS_strore
