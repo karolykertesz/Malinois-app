@@ -6,4 +6,6 @@ export class CreateAuthDto {
   readonly email: string
   @IsString()
   readonly password: string
+  @IsString()
+  readonly photo_url?: string
 }
