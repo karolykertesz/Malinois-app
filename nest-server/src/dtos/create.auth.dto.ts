@@ -1,4 +1,4 @@
-import { IsString,IsEmail, isString } from "class-validator";
+import { IsString,IsEmail, IsOptional } from "class-validator";
 export class CreateAuthDto {
   @IsString()
   readonly name: string;
@@ -7,5 +7,6 @@ export class CreateAuthDto {
   @IsString()
   readonly password: string
   @IsString()
+  @IsOptional()
   readonly photo_url?: string
 }

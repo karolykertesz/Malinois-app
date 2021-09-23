@@ -8,8 +8,8 @@ export class Auth {
   name: string;
   @Column()
   email: string;
-  @Column()
-  photo_url?: string;
-  @Column('json')
-  messages: MessageEntity[];
+  @Column({nullable: true})
+  photo_url: string;
+  @Column('json',{nullable: true})
+  messages?: MessageEntity[];
 }

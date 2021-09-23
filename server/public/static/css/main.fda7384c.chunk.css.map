@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack://src/css/style.css"],"names":[],"mappings":"AAAA,EAEU,qBAAsB,CAC9B,QAAS,CACT,SACF,CAEA,KACE,wBACF","file":"main.fda7384c.chunk.css","sourcesContent":["* {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  margin: 0;\n  padding: 0;\n}\n\nbody {\n  background-color: papayawhip;\n}\n"]}

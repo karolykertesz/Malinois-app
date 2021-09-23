@@ -5,26 +5,27 @@ import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { Auth } from './enteties/auth';
 import { ConfigModule } from '@nestjs/config';
+import { join } from 'path';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { MessageEntity } from './messages/message.entity';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: [],
+      // envFilePath: [".env"],
     }),
     AuthModule,
     TypeOrmModule.forRoot({
       type: 'postgres',
-      name: 'default',
+     host: "localhost",
       synchronize: true,
       autoLoadEntities: true,
       entities: [Auth],
-      ssl:
-        process.env.NODE_ENV === 'production'
-          ? { rejectUnauthorized: false }
-          : false,
-      url: process.env.TYPE_ORM_POSTGRESS_URL,
+      password: "pass123",
+      database: "postgres",
       port: 5432,
     }),
+  
   ],
   controllers: [AppController],
   providers: [AppService],
