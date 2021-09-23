@@ -1,13 +1,20 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException, Scope } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { CreateAuthDto } from 'src/dtos/create.auth.dto';
 import { Auth } from 'src/enteties/auth';
-import { Repository } from 'typeorm';
+import { Repository, Connection } from 'typeorm';
 import { UpdateAuthDTO } from 'src/dtos/update.auth.dto';
+import { ConfigService } from '@nestjs/config';
+import { CreateCookie } from 'src/middlewares/create-cookie';
 
-@Injectable()
+@Injectable({ scope: Scope.DEFAULT })
 export class AuthService {
-  constructor(@InjectRepository(Auth) private authRepo: Repository<Auth>) {}
+  constructor(
+    @InjectRepository(Auth) private authRepo: Repository<Auth>,
+    private readonly configService: ConfigService,
+    private readonly createCookie: CreateCookie,
+    private readonly consfigService: ConfigService,
+  ) {}
 
   async saveUser(CreateAuthDto: any) {
     const user = await this.authRepo.create(CreateAuthDto);
@@ -26,5 +33,11 @@ export class AuthService {
       throw new NotFoundException('No User found with this id!!');
     }
     return this.authRepo.save(user);
+  }
+  async signIn(res, body) {
+    const { id } = body;
+    const secret = this.consfigService.get<string>('JWT_TOKEN_SECRET');
+    const token = await this.createCookie.create(res, id, secret);
+    return res.status(200);
   }
 }

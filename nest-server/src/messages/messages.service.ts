@@ -1,9 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
-import { Auth } from 'src/enteties/auth';
+import { AuthService } from 'src/auth/auth.service';
 
 @Injectable()
 export class MessagesService {
-  constructor(@InjectRepository(Auth) private authRepo: Repository<Auth>) {}
+  constructor(private readonly authService: AuthService) {}
 }

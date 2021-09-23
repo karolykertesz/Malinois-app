@@ -1,11 +1,11 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, HttpCode, Param } from '@nestjs/common';
 import { MessagesService } from './messages.service';
 
 @Controller('messages')
 export class MessagesController {
-  constructor(messageService: MessagesService){}
-  @Get(":id")
-  getAllMyMessages(@Param("id") id:string){
-
+  constructor(messageService: MessagesService) {}
+  @Get('/get')
+  getAllMyMessages() {
+    return HttpCode(200);
   }
 }
