@@ -5,5 +5,5 @@ import { Auth } from 'src/enteties/auth';
 
 @Injectable()
 export class MessagesService {
-  constructor(@InjectRepository(Auth) private authRepo: Repository<Auth>){}
+  constructor(@InjectRepository(Auth) private authRepo: Repository<Auth>) {}
 }
