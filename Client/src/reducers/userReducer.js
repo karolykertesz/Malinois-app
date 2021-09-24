@@ -1,48 +1,32 @@
+import { createSlice } from "@reduxjs/toolkit"
 
-import {LOG_IN,SIGN_OUT,DELETE_USER} from "./index"
 const initialState = {
-  id: 1,
+ initUser: {
+  id: null,
   user_name: null,
   user_email: null,
   status: false
+ }
 
 }
 
-export const singleUser = (state= initialState,action)=> {
-  switch(action.type){
-    case LOG_IN:
-      return {
-        state: action.userObj
-      }
-      default: {
-        return state
-      }
+const User = createSlice({
+  name: "User",
+  initialState,
+  reducers:{
+    addInitUser(state,action){
+      state.initUser = action.payload
+    },
+    logOutInitUser(state,action){
+      state.initUser = initialState.initUser
+    }
   }
-}
+})
+export default User.reducer;
+export const {addInitUser,logOutInitUser} = User.actions
 
 
 
 
-export const usersReducer = (state = [],action)=> {
-switch(action.type){
-  case SIGN_OUT:
-   const currentState = state.filter((item)=> item.id !== action.id)
-   return {
-     ...currentState
-   };
-   case DELETE_USER:
-    const current = state.filter((item)=> item.id !== action.id)
-    return {
-      ...current
-    };
-   case LOG_IN:
-     return {
-       state:state.concat(action.userObj)
-     }
-   default: {
-     return state;
-   }
-}
 
-}
 

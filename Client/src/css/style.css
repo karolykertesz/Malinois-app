@@ -124,6 +124,10 @@ header .menu-btn-burger.open::after {
   transition-delay: 0.55s;
 }
 
+.noDisp {
+  display: none;
+}
+
 .home {
   width: 100%;
   padding-top: 10vh;

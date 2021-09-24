@@ -6,6 +6,7 @@ header {
   width: 100%;
   height: 10%;
   background-color: rgb(250, 218, 176);
+ 
   .manu-nav { 
     display: flex;
     align-items: center;
@@ -131,3 +132,9 @@ color: $sub-color;
   .menu-nav-item:nth-child(#{$i}){
 transition-delay: ($i * 0.1s) + 0.15s  }
 }
+
+.noDisp{
+  display: none;
+}
+
+

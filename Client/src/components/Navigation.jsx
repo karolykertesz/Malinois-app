@@ -1,11 +1,13 @@
-import React, { useState } from "react";
 
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
 const Navigation = () => {
   const [open, setOpnen] = useState(false);
+  const user = useSelector((state)=> state.user)
 
   return (
-    <header>
-      <div className="menu-btn">
+    <header >
+      <div className="menu-btn noDisp">
         <span
           className={!open ? "menu-btn-burger" : "menu-btn-burger open"}
           onClick={() => setOpnen(!open)}
@@ -14,7 +16,7 @@ const Navigation = () => {
         </span>
       </div>
 
-      <nav className="nav">
+      <nav className="nav noDisp">
         <ul className={!open ? "manu-nav" : "manu-nav open"}>
           <li className={!open ? "menu-nav-item" : "menu-nav-item open"}>
             <a href="index.html" className="menu-nav-link active">

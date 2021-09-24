@@ -5,18 +5,14 @@ import Home from "../pages/home";
 import About from "../pages/about";
 import MainHolder from "./MainHolder";
 const HomeCont = () => {
-  const user = useSelector((state) => state.user);
+  const id = useSelector((state) => state.user.initUser.id);
 
   return (
     <BrowserRouter>
       <Switch>
-        {!user.id ? (
-          <Route component={Login} exact path="/" />
-        ) : (
           <MainHolder>
-            <Route component={Home} exact path="/" />
+            <Route component={ !id ? Login:Home} exact path="/" />
           </MainHolder>
-        )}
       </Switch>
     </BrowserRouter>
   );
