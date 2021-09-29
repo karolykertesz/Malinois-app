@@ -4,7 +4,7 @@ import { MaliStart } from "./mali.api.reducer"
 
 export const store = configureStore({
   reducer: {
-    userInit: User,
+    user: User,
     [MaliStart.reducerPath]: MaliStart.reducer
   },
   middleware: (getDefaultMiddleware)=> {

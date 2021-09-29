@@ -1,4 +1,9 @@
+import {useFetchMalisQuery} from "../reducers/mali.api.reducer"
+
 const Home = ()=> {
+  const {data} = useFetchMalisQuery()
+  console.log(data.photos)
+
   return (
     <div className="home">
 <h3 className="home-text">
