@@ -1,4 +1,3 @@
-
 header {
   position: fixed;
   z-index: 2;
@@ -6,8 +5,8 @@ header {
   width: 100%;
   height: 10%;
   background-color: rgb(250, 218, 176);
- 
-  .manu-nav { 
+
+  .manu-nav {
     display: flex;
     align-items: center;
     flex-direction: row;
@@ -18,123 +17,113 @@ header {
     visibility: hidden;
     overflow: hidden;
     // transform: translateY(100px);
-    
-    
+
     @include transition-ease;
     &.open {
       transform: translateY(0);
       height: 90vh;
       width: 100vw;
-    background: rgb(250, 218, 176); 
-visibility: visible;
-opacity: 1;
-
-;
-
-
+      background: rgb(250, 218, 176);
+      visibility: visible;
+      opacity: 1;
     }
 
-
-    li a{
+    li a {
       color: $sub-color;
-    padding-right: 1rem;
+      padding-right: 1rem;
+    }
 
-    }
-    
-    li a:nth-child(1){
-      // margin-left: 2rem;
-    }
+    // li a:nth-child(1){
+    //   // margin-left: 2rem;
+    // }
     // &.open {
     //   visibility: visible
     // }
-  };
+  }
 
   .menu-nav-item {
     transform: translateX(0);
 
+    color: $sub-color;
+    visibility: visible;
+
+    @include transition-ease;
+    &.open {
+      @include transition-ease;
+      transform: translateX(10vh);
       color: $sub-color;
-      visibility: visible;
-
-@include transition-ease;
-&.open {
-@include transition-ease;
-transform: translateX(10vh);
-color: $sub-color;
-
-}
-
+    }
   }
   .menu-btn {
     position: absolute;
     right: 1rem;
-    top:1rem;
+    top: 1rem;
     z-index: 3;
     height: 20px;
     cursor: pointer;
     @include transition-ease;
-&-burger {
-  position: absolute;
-  right: 0;
-  top: 0.5rem;
-  width: 28px;
-  height: 3px;
-  background: $sub-color;
-  @include transition-ease;
-&::before{
-  content: "";
-  position: absolute;
-  top: -8px;
-  width: 28px;
-  height: 3px;
-  background-color: $sub-color;
-  @include transition-ease;
-} 
+    &-burger {
+      position: absolute;
+      right: 0;
+      top: 0.5rem;
+      width: 28px;
+      height: 3px;
+      background: $sub-color;
+      @include transition-ease;
+      &::before {
+        content: "";
+        position: absolute;
+        top: -8px;
+        width: 28px;
+        height: 3px;
+        background-color: $sub-color;
+        @include transition-ease;
+      }
 
-&::after {
-  content: "";
-  position: absolute;
-  top: 8px;
-  width: 28px;
-  height: 3px;
-  background-color: $sub-color;
-}
-&.open{
-  transform: rotate(720deg);
-  background: transparent;
-  &::before {
-    transform: rotate(45deg) translate(5px,8px);
-  }
-  &::after {
-    transform: rotate(-45deg) translate(3px, -7px);
-  }
-}
-}
+      &::after {
+        content: "";
+        position: absolute;
+        top: 8px;
+        width: 28px;
+        height: 3px;
+        background-color: $sub-color;
+      }
+      &.open {
+        transform: rotate(720deg);
+        background: transparent;
+        &::before {
+          transform: rotate(45deg) translate(5px, 8px);
+        }
+        &::after {
+          transform: rotate(-45deg) translate(3px, -7px);
+        }
+      }
+    }
   }
 }
 
-.menu-nav-link{
+.menu-nav-link {
   display: inline-block;
   // padding:.5rem 0;
   font-size: 1.1rem;
   text-transform: uppercase;
   font-weight: 300;
   @include transition-ease;
-&.active {
-  color:$icon-color;
-}
+  &.active {
+    color: $icon-color;
+  }
 
-  &:hover{
+  &:hover {
     color: $icon-color;
   }
 }
 
 @for $i from 1 through 4 {
-  .menu-nav-item:nth-child(#{$i}){
-transition-delay: ($i * 0.1s) + 0.15s  }
+  .menu-nav-item:nth-child(#{$i}) {
+    transition-delay: ($i * 0.1s) + 0.15s;
+  }
 }
 
-.noDisp{
+.noDisp {
   display: none;
 }
-
-

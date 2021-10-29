@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Login from "../pages/login";
+import Login from "../pages/login.tsx";
 import Home from "../pages/home";
 import About from "../pages/about";
 import MainHolder from "./MainHolder";
@@ -10,9 +10,9 @@ const HomeCont = () => {
   return (
     <BrowserRouter>
       <Switch>
-          <MainHolder>
-            <Route component={ !id ? Login:Home} exact path="/" />
-          </MainHolder>
+        <MainHolder>
+          <Route component={id ? Login : Home} exact path="/" />
+        </MainHolder>
       </Switch>
     </BrowserRouter>
   );

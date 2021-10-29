@@ -1,12 +1,12 @@
-
-import "../src/css/style.css"
+import React from "react";
+import "../src/css/style.css";
 import HomeCont from "./components/HomeCont";
-function App() {
+const App: React.FC = () => {
   return (
     <div className="App">
-<HomeCont/>
+      <HomeCont />
     </div>
   );
-}
+};
 
 export default App;

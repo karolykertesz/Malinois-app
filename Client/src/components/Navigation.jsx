@@ -1,19 +1,16 @@
-
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 const Navigation = () => {
   const [open, setOpnen] = useState(false);
-  const user = useSelector((state)=> state.user)
+  const user = useSelector((state) => state.user);
 
   return (
-    <header >
+    <header>
       <div className="menu-btn noDisp">
         <span
           className={!open ? "menu-btn-burger" : "menu-btn-burger open"}
           onClick={() => setOpnen(!open)}
-        >
-          {" "}
-        </span>
+        ></span>
       </div>
 
       <nav className="nav noDisp">
