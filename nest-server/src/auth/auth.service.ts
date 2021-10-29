@@ -14,7 +14,10 @@ export class AuthService {
     private readonly configService: ConfigService,
     private readonly createCookie: CreateCookie,
     private readonly consfigService: ConfigService,
-  ) {}
+  ) {
+    const r = this.configService.get<string>("JWT_TOKEN_SECRET")
+    console.log(r)
+  }
 
   async saveUser(CreateAuthDto: any) {
     const user = await this.authRepo.create(CreateAuthDto);

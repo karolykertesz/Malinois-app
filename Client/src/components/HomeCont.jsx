@@ -4,8 +4,9 @@ import Login from "../pages/login.tsx";
 import Home from "../pages/home";
 import About from "../pages/about";
 import MainHolder from "./MainHolder";
+
 const HomeCont = () => {
-  const id = useSelector((state) => state.user.initUser.id);
+  const { id } = useSelector((state) => state.user.init);
 
   return (
     <BrowserRouter>
