@@ -1,5 +1,6 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 import { MessageEntity } from 'src/messages/message.entity';
+import { Exclude } from 'class-transformer';
 @Entity()
 export class Auth {
   @PrimaryGeneratedColumn()
@@ -8,8 +9,9 @@ export class Auth {
   name: string;
   @Column()
   email: string;
-  @Column({nullable: true})
+  @Column({ nullable: true })
   photo_url: string;
-  @Column('json',{nullable: true})
+  @Exclude()
+  @Column('json', { nullable: true })
   messages?: MessageEntity[];
 }

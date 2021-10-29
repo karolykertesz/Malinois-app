@@ -18,7 +18,6 @@ export class CheckCookie implements NestMiddleware {
     if (!cookie) {
       throw new ForbiddenException({
         message: 'You need to log in',
-        status: 403,
       });
     }
     try {

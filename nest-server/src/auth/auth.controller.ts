@@ -7,6 +7,7 @@ import {
   Patch,
   Res,
   HttpStatus,
+  HttpCode,
 } from '@nestjs/common';
 import { Response } from 'express';
 import { CreateAuthDto } from 'src/dtos/create.auth.dto';
@@ -18,9 +19,13 @@ import { AuthService } from './auth.service';
 export class AuthController {
   constructor(private readonly authservice: AuthService) {}
 
-  @Get(':id')
-  getUserInfo(@Param('id') id: string) {
-    return this.authservice.findUser(id);
+  // @Get(':id')
+  // getUserInfo(@Param('id') id: string) {
+  //   return this.authservice.findUser(id);
+  // }
+  @Get('/ping')
+  getPing(@Res() res: Response) {
+    return res.status(HttpStatus.OK).json('Ok');
   }
   @Post()
   createUser(@Body() body: CreateAuthDto) {

@@ -1,4 +1,9 @@
-import { Injectable, NotFoundException, Scope } from '@nestjs/common';
+import {
+  HttpStatus,
+  Injectable,
+  NotFoundException,
+  Scope,
+} from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { CreateAuthDto } from 'src/dtos/create.auth.dto';
 import { Auth } from 'src/enteties/auth';
@@ -15,16 +20,24 @@ export class AuthService {
     private readonly createCookie: CreateCookie,
     private readonly consfigService: ConfigService,
   ) {
-    const r = this.configService.get<string>("JWT_TOKEN_SECRET")
-    console.log(r)
+    // const r = this.configService.get<string>("JWT_TOKEN_SECRET")
+    // console.log(r)
   }
 
   async saveUser(CreateAuthDto: any) {
+    const exUser = '';
     const user = await this.authRepo.create(CreateAuthDto);
     return this.authRepo.save(user);
   }
   async findUser(id: string) {
     const user = await this.authRepo.findOne({ id: +id });
+    if (!user) {
+      throw new NotFoundException('No User found with this id!!');
+    }
+    return user;
+  }
+  async findUserBuMail(email: string) {
+    const user = await this.authRepo.findOne({ email });
     if (!user) {
       throw new NotFoundException('No User found with this id!!');
     }
