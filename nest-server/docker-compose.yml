@@ -4,7 +4,14 @@ services:
   db:
     image: postgres
     restart: always
+    container_name: my_postgres
     ports:
       - '5432:5432'
     environment:
-      POSTGRES_PASSWORD: pass123
+      POSTGRES_PASSWORD: docker
+      POSTGRES_DB: mali
+      POSTGRES_USER: docker
+    volumes:
+      - my_dbdata:/var/lib/postgresql/data
+volumes:
+  my_dbdata:

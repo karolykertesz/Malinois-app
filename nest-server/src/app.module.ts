@@ -27,7 +27,7 @@ import { CheckCookie } from './middlewares/check-cookie';
       autoLoadEntities: true,
       entities: [Auth],
       password: 'pass123',
-      database: 'postgres',
+      database: 'mali',
       port: 5432,
     }),
     MessagesModule,
