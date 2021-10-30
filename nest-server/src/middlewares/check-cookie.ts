@@ -3,8 +3,6 @@ import {
   HttpCode,
   Injectable,
   NestMiddleware,
-  NotAcceptableException,
-  NotFoundException,
 } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { Request, Response, NextFunction } from 'express';

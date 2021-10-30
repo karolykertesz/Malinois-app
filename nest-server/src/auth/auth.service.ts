@@ -1,6 +1,6 @@
 import {
-  HttpStatus,
   Injectable,
+  NotAcceptableException,
   NotFoundException,
   Scope,
 } from '@nestjs/common';
@@ -16,7 +16,6 @@ import { CreateCookie } from 'src/middlewares/create-cookie';
 export class AuthService {
   constructor(
     @InjectRepository(Auth) private authRepo: Repository<Auth>,
-    private readonly configService: ConfigService,
     private readonly createCookie: CreateCookie,
     private readonly consfigService: ConfigService,
   ) {
@@ -24,10 +23,15 @@ export class AuthService {
     // console.log(r)
   }
 
-  async saveUser(CreateAuthDto: any) {
-    const exUser = '';
-    const user = await this.authRepo.create(CreateAuthDto);
-    return this.authRepo.save(user);
+  async saveUser(body: CreateAuthDto) {
+    const { email } = body;
+    const user = await this.findUserByMail(email);
+    if (user) {
+      return new NotAcceptableException('Sorry,already user by this email');
+    }
+    const newUser = this.authRepo.create(body);
+    // const user = await this.authRepo.create(CreateAuthDto);
+    return this.authRepo.save(newUser);
   }
   async findUser(id: string) {
     const user = await this.authRepo.findOne({ id: +id });
@@ -36,7 +40,7 @@ export class AuthService {
     }
     return user;
   }
-  async findUserBuMail(email: string) {
+  async findUserByMail(email: string) {
     const user = await this.authRepo.findOne({ email });
     if (!user) {
       throw new NotFoundException('No User found with this id!!');
@@ -51,7 +55,11 @@ export class AuthService {
     return this.authRepo.save(user);
   }
   async signIn(res, body) {
-    const { id } = body;
+    const { id, email, password } = body;
+    const user = this.findUserByMail(email);
+    if (!user) {
+      return new NotAcceptableException();
+    }
     const secret = this.consfigService.get<string>('JWT_TOKEN_SECRET');
     const token = await this.createCookie.create(res, id, secret);
     return res.status(200);
