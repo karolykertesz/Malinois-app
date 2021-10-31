@@ -3,8 +3,6 @@ import {
   HttpCode,
   Injectable,
   NestMiddleware,
-  NotAcceptableException,
-  NotFoundException,
 } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { Request, Response, NextFunction } from 'express';
@@ -18,7 +16,6 @@ export class CheckCookie implements NestMiddleware {
     if (!cookie) {
       throw new ForbiddenException({
         message: 'You need to log in',
-        status: 403,
       });
     }
     try {

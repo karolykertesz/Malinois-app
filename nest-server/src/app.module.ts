@@ -13,6 +13,9 @@ import { ConfigModule } from '@nestjs/config';
 
 import { MessagesModule } from './messages/messages.module';
 import { CheckCookie } from './middlewares/check-cookie';
+import { ProductsModule } from './products/products.module';
+import { Message } from './messages/message.entity';
+import { Product } from './enteties/product.entity';
 
 @Module({
   imports: [
@@ -25,12 +28,13 @@ import { CheckCookie } from './middlewares/check-cookie';
       host: 'localhost',
       synchronize: true,
       autoLoadEntities: true,
-      entities: [Auth],
+      entities: [Auth, Message, Product],
       password: 'pass123',
-      database: 'postgres',
+      database: 'mali',
       port: 5432,
     }),
     MessagesModule,
+    ProductsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
