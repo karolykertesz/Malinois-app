@@ -3,13 +3,15 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Auth } from 'src/enteties/auth';
 import { ConfigService } from '@nestjs/config';
+import { Message } from './message.entity';
+import { AuthService } from 'src/auth/auth.service';
 
-@Injectable({scope: Scope.REQUEST})
+@Injectable({ scope: Scope.REQUEST })
 export class MessagesService {
-  constructor(@InjectRepository(Auth) private authRepo: Repository<Auth>,
-  private readonly configService: ConfigService
-  ){
-
-  }
-  
+  constructor(
+    @InjectRepository(Message)
+    private messageRepo: Repository<Message>,
+    private readonly configService: ConfigService,
+    private readonly authService: AuthService,
+  ) {}
 }

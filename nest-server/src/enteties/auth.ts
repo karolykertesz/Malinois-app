@@ -1,5 +1,5 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
-import { MessageEntity } from 'src/messages/message.entity';
+import { Message } from 'src/messages/message.entity';
 import { Exclude } from 'class-transformer';
 @Entity()
 export class Auth {
@@ -13,5 +13,5 @@ export class Auth {
   photo_url: string;
   @Exclude()
   @Column('json', { nullable: true })
-  messages?: MessageEntity[];
+  messages?: Message[];
 }
