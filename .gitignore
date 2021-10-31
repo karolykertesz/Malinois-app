@@ -2,9 +2,12 @@
 server/node_modules
 client/node_modules
 **/node_modules
+
 *.log
 *.env
 .env
+.env.*
 *.env.local
+
 .DS_strore
 nest-server/src/ormconfig.json
