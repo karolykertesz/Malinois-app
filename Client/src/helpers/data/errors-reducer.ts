@@ -6,10 +6,10 @@ export interface Sig {
 }
 export const errorReducer = (state: ErrorTypes, action: Sig): any => {
   switch (action.type) {
-    case "name":
+    case "fname":
       return {
         ...state,
-        name: action.payload,
+        fname: action.payload,
       };
     case "email":
       return {

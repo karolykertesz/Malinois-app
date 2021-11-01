@@ -8,18 +8,33 @@
   position: relative;
   .error {
     position: absolute;
-    left: 70%;
-    bottom: -20%;
+    left: 42%;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    color: rgba(255, 0, 0, 0.598);
+    text-transform: uppercase;
+  }
+  .succes {
+    color: rgba(13, 226, 155, 0.762);
+    position: absolute;
+    left: 45%;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
   }
 }
 .form-container {
   width: 100%;
   margin: auto;
-  background-color: red;
   position: relative;
   .form {
     width: 90%;
-    background-color: aqua;
+
     margin: auto;
     .form-input {
       display: flex;
@@ -30,23 +45,54 @@
         padding: 5px 10px;
         margin: 10px 0 0 50px;
         width: 40%;
+        color: $brown-dark-40;
+        font-family: "Yellowtail", sans-serif;
+        font-weight: 500;
+        letter-spacing: 1px;
+        font-size: 1.1rem;
       }
       input {
         width: 60%;
         padding: 10px 10px;
-        margin: 15px 50px 10px 0;
+        margin: 10px 50px 25px 0;
         border: none;
         outline: none;
         border-radius: 20px;
+        color: $brown-dark-40;
         -webkit-border-radius: 20px;
         -moz-border-radius: 20px;
         -ms-border-radius: 20px;
         -o-border-radius: 20px;
+        &::placeholder {
+          color: $nav-sec;
+        }
       }
     }
   }
 }
-
+.signup_button {
+  width: 100%;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  position: relative;
+  button {
+    width: 53%;
+    position: absolute;
+    bottom: -35px;
+    left: 42%;
+    height: 30px;
+    text-transform: capitalize;
+    background-color: rgba(127, 255, 212, 0.762);
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+  }
+}
 @media (min-width: 750px) {
   .signup_cont {
     width: 90%;

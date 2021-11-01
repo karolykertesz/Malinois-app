@@ -1,14 +1,16 @@
 @import "./mixin";
 @import "./functions";
 
-
 $main-color: papayawhip;
 $icon-color: silver;
-$sub-color: rgba(62, 38, 6, .7);
-$main-font: Georgia, 'Times New Roman', Times, serif;
+$sub-color: rgba(62, 38, 6, 0.7);
+$main-font: Georgia, "Times New Roman", Times, serif;
 $base-font-size: 16px;
 
+$sub-strong: #ffbf00;
+$nav-color: rgb(250, 218, 176);
+$nav-sec: #fadab0;
 
-
-
-
+$brown-dark: #cc9966;
+$brown-dark-60: #a97744;
+$brown-dark-40: #d9b38c;

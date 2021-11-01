@@ -2,14 +2,47 @@ import React, { useReducer, useState } from "react";
 import { initialState, initialErrorState } from "../helpers/data/reducer-state";
 import { userReducer } from "../helpers/data/reducer-functions";
 import { errorReducer } from "../helpers/data/errors-reducer";
-import { constraints } from "../validation/signup";
 import { inputvalues } from "../helpers/data/input-values";
+import validate from "validate.js";
+import { constraints } from "../validation/signup";
+import { createAccount } from "../helpers/firebase-functions/create-account";
 
 const Sign: React.FC = () => {
   const [state, dispatch] = useReducer(userReducer, initialState);
   const [errors, errorDispatch] = useReducer(errorReducer, initialErrorState);
-  const formSubmit = (e: React.FormEvent) => {
+  const [errorActive, setActive] = useState(true);
+  const formSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    errorDispatch({ type: "reset", payload: "" });
+    setActive(true);
+    const value = await validate(
+      { area_code: +state.area_code, ...state },
+      constraints
+    );
+
+    // if (value) {
+    //   return Object.entries(value).map((i: any) => {
+    //     const [name, val] = i;
+    //     return errorDispatch({
+    //       type: name,
+    //       payload: val.join().replace(" ", ",").split(",").slice(1).join(", "),
+    //     });
+    //   });
+    // }
+
+    // setActive(false);
+    const user = await createAccount(
+      state.email,
+      state.password,
+      errorDispatch,
+      setActive
+    );
+    console.log(user);
+    dispatch({ type: "reset", payload: "" });
+    errorDispatch({
+      type: "display_name",
+      payload: `We sent the activation email to ${state.email}`,
+    });
   };
   return (
     <div style={{ width: "100%", height: "100%" }}>
@@ -22,28 +55,32 @@ const Sign: React.FC = () => {
               return (
                 <div className="input-holder">
                   <div className="form-input" key={values.name}>
-                    <label htmlFor={values.name}>{values.label}</label>
+                    <label htmlFor={values.name}>{`${values.label}*`}</label>
                     <input
                       type={values.type}
                       id={values.name}
                       name={values.name}
                       placeholder={values.place}
                       maxLength={values.name === "area_code" ? 5 : 200}
-                      minLength={values.name === "area_code" ? 4 : 3}
+                      minLength={values.name === "area_code" ? 4 : 1}
                       onChange={(e) =>
                         dispatch({ type: values.name, payload: e.target.value })
                       }
                       value={v}
                     />
                   </div>
-                  <div className="error">
+                  <div
+                    className={errorActive ? "error" : "succes"}
+                    style={{ textAlign: "center" }}
+                  >
                     {errrorValues}
-                    hh
                   </div>
                 </div>
               );
             })}
-            <button type="submit">send</button>
+            <div className="signup_button">
+              <button type="submit">send</button>
+            </div>
           </form>
         </div>
       </div>

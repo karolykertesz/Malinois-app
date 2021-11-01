@@ -1,45 +1,63 @@
 export const inputvalues = [
   {
     name: "fname",
-    place: "ex: myemail@gmail.com",
+    place: "example: Peter",
     label: "Your First Name",
     type: "text",
   },
   {
     name: "surname",
-    place: "Enter Your Lastname",
+    place: "example: Smith",
     label: "Your Lastname Name",
     type: "text",
   },
   {
     name: "email",
-    place: "Enter Your Email",
+    place: "example: myemail@gmail.com",
     label: "Your Email",
     type: "email",
+  },
+  {
+    name: "password",
+    place: "Enter Your password",
+    label: "Your Password",
+    type: "password",
   },
 
   {
     name: "city",
-    place: "Your City",
-    label: "Your Your City",
+    place: "example: Montreal",
+    label: "Your City",
     type: "text",
   },
   {
     name: "street",
-    place: "Your Street name",
+    place: "example: 1123 Road",
     label: "Name of Your street",
     type: "text",
   },
   {
     name: "area_code",
-    place: "Area Code",
+    place: "example: 12312",
     label: "Area Code",
     type: "text",
   },
   {
     name: "appartment",
-    place: "Your Appartment",
+    place: "example: 25",
     label: "Your Appartment",
+    type: "text",
+  },
+  {
+    name: "phone",
+    place: "example: +36701901910",
+    label: "Your Phone Number Goes Here",
+    type: "text",
+  },
+  {
+    name: "display_name",
+    place: "example: Super Mario",
+    label: "Your Avatar name",
     type: "text",
   },
 ];

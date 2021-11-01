@@ -28,6 +28,11 @@ export const constraints = {
       pattern: "[^<>{}()]+",
       message: "Not supported Characters",
     },
+    length: {
+      minimum: 6,
+      maximum: 20,
+      message: "too long or ,too sort!",
+    },
   },
   city: {
     presence: true,
@@ -51,8 +56,8 @@ export const constraints = {
   phone: {
     presence: true,
     format: {
-      pattern: "[a-z0-9]+",
-      message: "can only contain a-z and 0-9",
+      pattern: "[+0-9]+",
+      message: "can only contain + 0-9",
     },
   },
   street: {
@@ -75,6 +80,11 @@ export const constraints = {
       pattern: "[^<>{}()]+",
       message: "Not supported Characters",
     },
-    length: { minimum: 3, maximum: 20, message: "Name too, long or too, sort" },
+    length: {
+      minimum: 3,
+      maximum: 20,
+      tooShort: "needs to have 3 characters more",
+      tooLong: "Max 20 characters",
+    },
   },
 };
