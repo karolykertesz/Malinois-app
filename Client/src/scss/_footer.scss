@@ -1,19 +1,18 @@
-
 footer {
-  height: 10%;
+  height: 10vh;
   position: fixed;
   bottom: 0;
-  width:100%;
+  width: 100%;
   background-color: rgb(250, 218, 176);
   .social-icons {
     position: fixed;
     left: 1rem;
     bottom: 1rem;
-    
-    a{
+
+    a {
       padding: 0.4rem;
       color: $main-color;
-      &:hover{
+      &:hover {
         color: $icon-color;
         transform: translateY(30%);
       }

@@ -3,7 +3,6 @@ import {
   Column,
   Entity,
   JoinColumn,
-  JoinTable,
   OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
@@ -14,6 +13,8 @@ export class Product {
   id: string;
   @Column({ unique: true })
   added_by: string;
+  @Column('uuid')
+  pid: string;
   @Column({ default: new Date() })
   auction_starts: Date;
   @Column()

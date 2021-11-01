@@ -1,15 +1,24 @@
-import { IsString, IsEmail, IsOptional, IsNumber } from 'class-validator';
+import {
+  IsString,
+  IsEmail,
+  IsOptional,
+  IsNumber,
+  Min,
+  Max,
+} from 'class-validator';
 export class CreateAuthDto {
   @IsString()
   readonly name: string;
   @IsString()
   readonly surname: string;
   @IsNumber()
-  readonly areaCode: number;
+  readonly area_code: number;
   @IsEmail()
   readonly email: string;
   @IsString()
-  readonly password: string;
+  street: string;
+  @IsString()
+  appartment: string;
   @IsString()
   readonly country: string;
   @IsString()
@@ -17,7 +26,9 @@ export class CreateAuthDto {
   @IsString()
   readonly phone: string;
   @IsString()
-  readonly profile: string;
+  @Min(3)
+  @Max(20)
+  readonly display_name: string;
   @IsString()
   @IsOptional()
   readonly photo_url?: string;

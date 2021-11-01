@@ -16,6 +16,7 @@ import { CheckCookie } from './middlewares/check-cookie';
 import { ProductsModule } from './products/products.module';
 import { Message } from './messages/message.entity';
 import { Product } from './enteties/product.entity';
+import { Letters } from './enteties/letters.dto';
 
 @Module({
   imports: [
@@ -28,7 +29,7 @@ import { Product } from './enteties/product.entity';
       host: 'localhost',
       synchronize: true,
       autoLoadEntities: true,
-      entities: [Auth, Message, Product],
+      entities: [Auth, Message, Product, Letters],
       password: 'pass123',
       database: 'mali',
       port: 5432,

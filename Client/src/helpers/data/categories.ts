@@ -1,0 +1,17 @@
+export const categories = [
+  "art",
+  "computers",
+  "kids",
+  "clothes",
+  "cellular",
+  "hobbi",
+  "sport",
+  "home",
+  "cars",
+  "jewerly",
+  "music",
+  "collection",
+  "other",
+  "health",
+  "watch",
+];

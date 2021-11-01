@@ -2,18 +2,18 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 const Navigation = () => {
   const [open, setOpnen] = useState(false);
-  const user = useSelector((state) => state.user);
+  // const user = useSelector((state) => state.user);
 
   return (
     <header>
-      <div className="menu-btn noDisp">
+      <div className="menu-btn">
         <span
           className={!open ? "menu-btn-burger" : "menu-btn-burger open"}
           onClick={() => setOpnen(!open)}
         ></span>
       </div>
-
-      <nav className="nav noDisp">
+      {/* noDisp */}
+      <nav className="nav ">
         <ul className={!open ? "manu-nav" : "manu-nav open"}>
           <li className={!open ? "menu-nav-item" : "menu-nav-item open"}>
             <a href="index.html" className="menu-nav-link active">

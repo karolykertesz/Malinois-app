@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { useFetchMalisQuery } from "../reducers/mali.api.reducer";
+// import { useFetchMalisQuery } from "../reducers/mali.api.reducer";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
-  const { data = [] } = useFetchMalisQuery();
 
   return (
     <div className="container">

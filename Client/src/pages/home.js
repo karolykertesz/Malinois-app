@@ -1,4 +1,4 @@
-import { useFetchMalisQuery } from "../reducers/mali.api.reducer";
+// import { useFetchMalisQuery } from "../reducers/mali.api.reducer";
 
 const Home = () => {
   // const { data } = useFetchMalisQuery();
