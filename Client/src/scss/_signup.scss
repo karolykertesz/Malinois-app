@@ -9,7 +9,7 @@
   .error {
     position: absolute;
     left: 42%;
-    bottom: 0;
+    bottom: -4px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,7 +43,7 @@
 
       label {
         padding: 5px 10px;
-        margin: 10px 0 0 50px;
+        margin: -5px 0 0 50px;
         width: 40%;
         color: $brown-dark-40;
         font-family: "Yellowtail", sans-serif;
@@ -54,7 +54,7 @@
       input {
         width: 60%;
         padding: 10px 10px;
-        margin: 10px 50px 25px 0;
+        margin: 10px 40px 25px 0;
         border: none;
         outline: none;
         border-radius: 20px;
@@ -72,14 +72,14 @@
 }
 .signup_button {
   width: 100%;
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
   position: relative;
+
   button {
     width: 53%;
     position: absolute;
-    bottom: -35px;
+    font-weight: 700;
+    font-family: "Combo", sans-serif;
+    bottom: -10px;
     left: 42%;
     height: 30px;
     text-transform: capitalize;
@@ -91,6 +91,46 @@
     -moz-border-radius: 15px;
     -ms-border-radius: 15px;
     -o-border-radius: 15px;
+    cursor: pointer;
+    @include transition-ease;
+    &:hover {
+      color: rgba(127, 255, 212, 0.762);
+      background-color: #fff;
+    }
+  }
+}
+.form-container .login-comp {
+  position: absolute;
+  bottom: -39px;
+  left: 65%;
+  font-family: "Yellowtail", sans-serif;
+  font-size: 1.3rem;
+  a {
+    color: rgba(127, 255, 212, 0.762);
+    letter-spacing: 2px;
+  }
+}
+.image-input {
+  svg {
+    position: absolute;
+    height: 35px;
+    left: 0;
+    bottom: 3px;
+    cursor: pointer;
+    fill: $brown-dark;
+  }
+  img {
+    position: absolute;
+    height: 35px;
+    left: 0;
+    bottom: 3px;
+    cursor: pointer;
+    width: 35px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
   }
 }
 @media (min-width: 750px) {

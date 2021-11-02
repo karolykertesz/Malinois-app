@@ -57,6 +57,11 @@ export const userReducer = (state: Signup, action: Sig): any => {
         ...state,
         appartment: action.payload,
       };
+    case "photo_url":
+      return {
+        ...state,
+        photo_url: action.payload,
+      };
     case "country":
       return {
         ...state,

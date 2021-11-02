@@ -6,11 +6,15 @@ import { inputvalues } from "../helpers/data/input-values";
 import validate from "validate.js";
 import { constraints } from "../validation/signup";
 import { createAccount } from "../helpers/firebase-functions/create-account";
+import { Link } from "react-router-dom";
+import { ReactComponent as Image } from "../svg/image.svg";
+import { Dropzone } from "./dropzone";
 
 const Sign: React.FC = () => {
   const [state, dispatch] = useReducer(userReducer, initialState);
   const [errors, errorDispatch] = useReducer(errorReducer, initialErrorState);
   const [errorActive, setActive] = useState(true);
+  console.log(state);
   const formSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     errorDispatch({ type: "reset", payload: "" });
@@ -20,29 +24,28 @@ const Sign: React.FC = () => {
       constraints
     );
 
-    // if (value) {
-    //   return Object.entries(value).map((i: any) => {
-    //     const [name, val] = i;
-    //     return errorDispatch({
-    //       type: name,
-    //       payload: val.join().replace(" ", ",").split(",").slice(1).join(", "),
-    //     });
-    //   });
-    // }
+    if (value) {
+      return Object.entries(value).map((i: any) => {
+        const [name, val] = i;
+        return errorDispatch({
+          type: name,
+          payload: val.join().replace(" ", ",").split(",").slice(1).join(", "),
+        });
+      });
+    }
 
-    // setActive(false);
-    const user = await createAccount(
-      state.email,
-      state.password,
-      errorDispatch,
-      setActive
-    );
-    console.log(user);
-    dispatch({ type: "reset", payload: "" });
-    errorDispatch({
-      type: "display_name",
-      payload: `We sent the activation email to ${state.email}`,
-    });
+    setActive(false);
+    // const user = await createAccount(
+    //   state.email,
+    //   state.password,
+    //   errorDispatch,
+    //   setActive
+    // );
+    // dispatch({ type: "reset", payload: "" });
+    // errorDispatch({
+    //   type: "display_name",
+    //   payload: `We sent the activation email to ${state.email}`,
+    // });
   };
   return (
     <div style={{ width: "100%", height: "100%" }}>
@@ -78,10 +81,19 @@ const Sign: React.FC = () => {
                 </div>
               );
             })}
+            <div className="form-input image-input">
+              <label htmlFor="img">Upload Your image</label>
+              <Dropzone fn={dispatch} ative={errorDispatch} setter={setActive}>
+                {!state.image_url ? <Image /> : <img src={state.image_url} />}
+              </Dropzone>
+            </div>
             <div className="signup_button">
               <button type="submit">send</button>
             </div>
           </form>
+          <div className="login-comp">
+            <Link to="/">Or login</Link>
+          </div>
         </div>
       </div>
     </div>
